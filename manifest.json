@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix Voice Control",
+  "version": "0.1.0",
+  "description": "Control Netflix web player using voice commands",
+
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://www.netflix.com/*"],
+
+  "icons": {
+    "16": "logo1.png",
+    "48": "logo1.png",
+    "128": "logo1.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo1.png",
+      "48": "logo1.png",
+      "128": "logo1.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
